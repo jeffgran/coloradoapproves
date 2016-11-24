@@ -1,8 +1,13 @@
 html, body {
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .intro {
     font-size: 1.5em;
     margin: 2em 0;
+}
+
+.footer {
+    background-color: #333;
+    color: #ddd;
 }
