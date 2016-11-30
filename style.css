@@ -1,13 +1,109 @@
-html, body {
-    font-size: 1.1em;
+* {
+    font-family: Raleway, Helvetica, sans-serif;
+}
+
+@media only screen and (min-width : 480px) {
+    html, body {
+        font-size: 1.1em;
+    }
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.title {
+    margin-top: 0;
+    font-weight: 900;
+    color: white;
+    font-size: 5em;
+}
+
+.title .dropcap {
+    color: #B00020;
+    font-size: 1.7em;
+    position: relative;
+    top: 0.15em;
+}
+
+@media only screen and (max-width : 480px) {
+    .title {
+        font-size: 4em;
+    }
+}
+
+
+.yellow-gradient {
+    background: rgba(255,253,240,1);
+    background: -moz-linear-gradient(top, rgba(255,253,240,1) 0%, rgba(255,250,227,1) 50%, rgba(255,253,240,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,253,240,1)), color-stop(50%, rgba(255,250,227,1)), color-stop(100%, rgba(255,253,240,1)));
+    background: -webkit-linear-gradient(top, rgba(255,253,240,1) 0%, rgba(255,250,227,1) 50%, rgba(255,253,240,1) 100%);
+    background: -o-linear-gradient(top, rgba(255,253,240,1) 0%, rgba(255,250,227,1) 50%, rgba(255,253,240,1) 100%);
+    background: -ms-linear-gradient(top, rgba(255,253,240,1) 0%, rgba(255,250,227,1) 50%, rgba(255,253,240,1) 100%);
+    background: linear-gradient(to bottom, rgba(255,253,240,1) 0%, rgba(255,250,227,1) 50%, rgba(255,253,240,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffdf0', endColorstr='#fffdf0', GradientType=0 );
+}
+
+.cobluebg {
+    background-color: #001857;
+    color: white;
 }
 
 .intro {
-    font-size: 1.5em;
-    margin: 2em 0;
+    font-size: 1.3em;
+    margin: 20px 0;
+    text-align: center;
 }
 
-.footer {
-    background-color: #333;
-    color: #ddd;
+.split-col p{
+    padding: 10px;
+    border-top: 2px solid #001857;
+    border-bottom: 2px solid #001857;
+}
+
+.main-container {
+    margin-bottom: 40px;
+}
+
+.main-container h2 {
+    text-align: center;
+    margin: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #e8dd99;
+}
+
+.main-container p,
+.main-container ul{
+    margin-bottom: 40px;
+}
+
+
+.card {
+    background-color: #fffef7;
+    border: 1px solid #e8dd99;
+    padding: 0 20px 10px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e8dd99;
+    text-align: center;
+}
+
+.card .btn {
+    margin-bottom: 40px;
+}
+
+
+.howcanihelp {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.giant-icon {
+    font-size: 3em;
+    display: inline-block;
+    margin: 0 5px 20px;
 }
