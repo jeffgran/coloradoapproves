@@ -1,5 +1,22 @@
+---
+---
+
 * {
     font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.not-footer {
+    flex: 1;
 }
 
 @media only screen and (min-width : 480px) {
@@ -15,6 +32,12 @@ h1,h2,h3,h4,h5,h6 {
 
 .header {
     margin-bottom: 30px;
+
+    img {
+        display: block;
+        margin: 20px auto;
+        max-height: 200px;
+    }
 }
 
 .title {
@@ -27,12 +50,6 @@ h1,h2,h3,h4,h5,h6 {
     margin: 0;
 }
 
-.header img {
-    display: block;
-    margin: 20px auto;
-    max-height: 200px;
-
-}
 
 .yellow-gradient {
     background: rgba(255,253,240,1);
@@ -63,19 +80,19 @@ h1,h2,h3,h4,h5,h6 {
 
 .main-container {
     margin-bottom: 40px;
+    h2 {
+        text-align: center;
+        margin: 40px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid #e8dd99;
+    }
+
+    p, ul {
+        margin-bottom: 40px;
+    }
 }
 
-.main-container h2 {
-    text-align: center;
-    margin: 40px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid #e8dd99;
-}
 
-.main-container p,
-.main-container ul{
-    margin-bottom: 40px;
-}
 
 
 .card {
@@ -83,18 +100,20 @@ h1,h2,h3,h4,h5,h6 {
     border: 1px solid #e8dd99;
     padding: 0 20px 10px;
     margin-bottom: 20px;
+
+    h3 {
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #e8dd99;
+        text-align: center;
+    }
+
+    .btn {
+        margin-bottom: 40px;
+    }
 }
 
-.card h3 {
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #e8dd99;
-    text-align: center;
-}
 
-.card .btn {
-    margin-bottom: 40px;
-}
 
 
 .howcanihelp {
@@ -109,27 +128,27 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .videoWrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  padding-top: 25px;
-  height: 0;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 }
 
-.videoWrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
 
 .footer {
     padding: 20px 0 40px;
-}
-
-.footer a {
-    color: #e8dd99;
-    text-decoration: underline;
+    a {
+        color: #e8dd99;
+        text-decoration: underline;
+    }
 }
 
 .footer-timestamp {
