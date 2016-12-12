@@ -13,6 +13,7 @@ body {
     min-height: 100%;
     display: flex;
     flex-direction: column;
+    color: #444;
 }
 
 .not-footer {
@@ -22,12 +23,16 @@ body {
 @media only screen and (min-width : 480px) {
     html, body {
         font-size: 1.1em;
-        color: #444;
     }
 }
 
 h1,h2,h3,h4,h5,h6 {
     font-weight: 700;
+}
+
+
+small {
+    color: #888;
 }
 
 .header {
