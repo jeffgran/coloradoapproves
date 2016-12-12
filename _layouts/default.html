@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <script src="https://use.fontawesome.com/5939b167bf.js"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch"></script>
+    <script
+       src="https://code.jquery.com/jquery-2.2.4.min.js"
+       integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+       crossorigin="anonymous"></script>
+
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     <link href="/styles/style.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{{ page.title }}</title>
 
@@ -35,6 +42,14 @@
     <meta property="og:title"              content="Colorado Approves: Help Bring Approval Voting to Colorado" />
     <meta property="og:description"        content="Approval Voting works exactly the same as our current elections, with one simple but crucial difference: you are allowed to vote for more than one candidate.  Most votes wins. This seems crazy, but it has wide-ranging and historic consequences." />
     <meta property="og:image"              content="http://coloradoapproves.org/images/coloradoapproves-screenshot2.png" />
+
+    {% if page.scripts %}
+    {% for s in page.scripts %}
+    <script src="{{s}}"></script>
+    {% endfor %}
+    {% endif %}
+
+
     <script>
       (function(h,e,a,t,m,p) {
       m=e.createElement(a);m.async=!0;m.src=t;
@@ -44,11 +59,33 @@
   </head>
 
   <body class="yellow-gradient">
+    <script>
+      window.fbAsyncInit = function() {
+      FB.init({
+      appId      : '1300698956639043',
+      xfbml      : true,
+      version    : 'v2.8'
+      });
+      };
+
+      (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
+
     <div class="not-footer">
       <div class="cobluebg header">
         <div class="container">
           <h1 class="title">Colorado Approves - Approval Voting for Colorado</h1>
-          <img src="/images/slice2.svg" />
+          <a href="/">
+            <img src="/images/slice2.svg" />
+          </a>
         </div>
       </div>
 
@@ -65,7 +102,7 @@
           <div class="col col-xs-12">
 
             {% if page.footer %}
-              {% include {{page.footer}} %}
+            {% include {{page.footer}} %}
             {% endif %}
 
           </div>

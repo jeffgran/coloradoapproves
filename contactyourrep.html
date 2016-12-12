@@ -1,0 +1,151 @@
+---
+layout: default
+title: "Colorado Approves: Help Bring Approval Voting to Colorado"
+permalink: /contact-your-legislators/
+scripts:
+- "https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"
+- "/scripts/contact-your-rep.js"
+- "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+---
+
+
+<div class="card">
+  <h2>How to Help</h2>
+
+  <p>
+    Since our current goal is to pass a bill in the state legislature, there's literally only one thing anyone can do to help. And that is to <strong>help convince the legislators to pass the bill</strong>.
+  </p>
+  <p>
+    The best way to do that is to contact your two representatives and ask them to support the bill on your behalf. Remember, they work for you. Their job is to represent you. So enough of us tell them that we want them to support this bill, they will have no choice but to listen.
+  </p>
+</div>
+
+
+<h2>How to Contact your State Legislators</h2>
+
+<p>So with that in mind, we've created a tool (below) to make it easy for your to find and contact your legislators.</p>
+
+<ul class="nav nav-tabs nav-justified" role="tablist" id="step-nav-tabs">
+  <li id="tab-step1" role="presentation" class="active"><a href="#tab-step1-content" aria-controls="tab-step1-content" role="tab" >Step 1: Find your Legislators</a></li>
+  <li id="tab-step2" class="disabled" role="presentation"><a href="#tab-step2-content" aria-controls="tab-step2-content" role="tab" >Step 2: Contact your Legislators</a></li>
+</ul>
+
+<div class="tab-content">
+  <div role="tabpanel" class="panel tab-pane fade in active" id="tab-step1-content">
+
+    <h3>Step 1: Find your Legislators</h3>
+
+    <p>You have two, a House Representative and a Senator. Enter your address below and we'll tell you who they are. Don't worry, your address will not be saved.</p>
+
+    <div id="error" class="alert alert-warning" style="display:none">
+      There was an error retreiving the information for that address. Please double-check the address and try again.
+    </div>
+
+    <div class="form-group">
+      <label for="address-autocomplete">Home Address</label>
+      <input id="address-autocomplete" placeholder="123 Colfax" class="form-control" onFocus="geolocate()" type="text"></input>
+      <p class="help-block">Start typing to show matching addresses. Select yours to show your customized information.</p>
+    </div>
+
+  </div>
+
+  <div role="tabpanel" class="panel tab-pane fade" id="tab-step2-content">
+
+    <div id="contact-step-2">
+      <h3>Step 2: Contact your Legislators</h3>
+
+      <p>
+        Below are your two Colorado State legislators, one for the House of Representatives, and one for the Senate.
+      </p>
+
+      <div id="rep1"></div>
+      <div id="rep2"></div>
+
+      <h4>Which contact method is best?</h4>
+      <p>
+        Anything is better than nothing! But some communication channels are more effective than others. Phone and physical letters mailed through snail-mail are best. Emails and other digital forms of communication have a chance of getting lost in the noise.
+      </p>
+
+      <h4>What should I say?</h4>
+      <p>
+        You can keep your message short, especially if it's a phone call. We don't want to waste anyone's time, we just want to make our support known.
+      </p>
+      <p>
+        Here's an example of what you might say:
+      </p>
+
+      <blockquote>
+        Hi this is (name) and I live at XYZ in your district. I wanted to ask you to support a bill from Representative Jonathan Singer that will introduce Approval Voting to Colorado. Approval Voting is a voting method that will help make our elections more fair. You can find out more at coloradoapproves.org or av4co.org. If you like the idea, Rep Singer also needs more co sponsors for the bill. Thanks.
+      </blockquote>
+
+    </div>
+  </div>
+</div>
+
+
+{% raw %}
+<script id="official-template" type="text/x-handlebars-template">
+  <div class="card official">
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col col-sm-2 col-xs-12 image-column">
+          <img class="img-thumbnail" alt="{{official.name}}" src={{official.photoUrl}} />
+        </div>
+
+        <div class="col col-sm-10 col-xs-12">
+          <h2><a target="_blank" href="{{official.urls.[0]}}">{{official.name}}</a></h2>
+          <dl class="dl-horizontal">
+            <dt>Party Affiliation:</dt>
+            <dd>{{official.party}}</dd>
+            <dt>District:</dt>
+            <dd>{{districtName}}</dd>
+            <dt>Mailing Address:</dt>
+            <dd>{{official.address}}</dd>
+            <dt>Email:</dt>
+            {{#each official.emails}}
+            <dd>
+              <a href="mailto:{{this}}">{{this}}</a>
+            </dd>
+            {{/each}}
+            <dt>Phone:</dt>
+            {{#each official.phones}}
+            <dd>
+              <a href="tel:{{this}}">{{this}}</a>
+            </dd>
+            {{/each}}
+
+            {{#if official.twitter}}
+            <dt>Twitter:</dt>
+            <dd>
+              <a href="https://twitter.com/intent/tweet?screen_name={{official.twitter.id}}" class="twitter-mention-button" data-text="Hi! Will you support Approval Voting in Colorado?" data-show-count="false">Tweet to @{{official.twitter.id}}</a>
+              <scr{{!}}ipt async src="//platform.twitter.com/widgets.js" charset="utf-8"></scr{{!}}ipt>
+            </dd>
+            {{/if}}
+
+            {{#if official.facebook}}
+            <dt>Facebook:</dt>
+            <dd>
+              <div class="fb-follow" data-href="https://www.facebook.com/{{official.facebook.id}}" data-layout="standard" data-size="small" data-show-faces="true"></div>
+            </dd>
+            {{/if}}
+
+            {{#if official.isRepublican}}
+            <dt>High Need Area?</dt>
+            <dd>
+              Yes! Congratulations, you're a Most Valuable Supporter because you live in a district with a Republican legislator. We have Democratic support in the congress but we need bi-partisan support for the bill to have the best chance of passing. Thanks for contacting {{official.name}} to urge support!
+            </dd>
+            {{/if}}
+
+          </dl>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</script>
+{% endraw %}
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuK5G6R3_yBIR9-zMWCSw2xmSc7vNM9yQ&libraries=places&callback=initAutocomplete" async defer></script>
