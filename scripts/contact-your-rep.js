@@ -1,13 +1,5 @@
 
-var placeSearch, autocomplete;
-var componentForm = {
-  street_number: 'short_name',
-  route: 'long_name',
-  locality: 'long_name',
-  administrative_area_level_1: 'short_name',
-  country: 'long_name',
-  postal_code: 'short_name'
-};
+var autocomplete;
 
 function initAutocomplete() {
   // Create the autocomplete object, restricting the search to geographical
@@ -25,7 +17,7 @@ function fillInAddress() {
   hideError();
 
   var place = autocomplete.getPlace();
-  console.log(place.formatted_address);
+  //console.log(place.formatted_address);
   window.fetch('https://www.googleapis.com/civicinfo/v2/representatives?address='+window.encodeURIComponent(place.formatted_address)+'&key='+'AIzaSyCuK5G6R3_yBIR9-zMWCSw2xmSc7vNM9yQ&levels=administrativeArea1&roles=legislatorLowerBody&roles=legislatorUpperBody')
     .then(function(response) {
       return response.json();
@@ -33,8 +25,7 @@ function fillInAddress() {
       showResult(json);
     })
     .catch(function(err) {
-      // TODO display error
-      console.error(err);
+      //console.error(err);
       showError();
     });
 }
@@ -112,5 +103,4 @@ function showResult(civicdata) {
   $('#tab-step2 a').tab('show');
 
   FB.XFBML.parse(document.getElementById('tab-step2-content'));
-
 }
