@@ -25,7 +25,7 @@ function fillInAddress() {
       showResult(json);
     })
     .catch(function(err) {
-      //console.error(err);
+      console.error(err);
       showError();
     });
 }
@@ -73,8 +73,8 @@ function showResult(civicdata) {
       party: official.party,
       emails: official.emails,
       phones: official.phones,
-      twitter: official.channels.find(function(o) { return o.type == "Twitter"; }),
-      facebook: official.channels.find(function(o) { return o.type == "Facebook"; }),
+      twitter: official.channels && official.channels.find(function(o) { return o.type == "Twitter"; }),
+      facebook: official.channels && official.channels.find(function(o) { return o.type == "Facebook"; }),
       address: "C/O " + official.name + ', 200 E Colfax Ave, Denver CO 80203',
       isRepublican: official.party == "Republican"
     };
