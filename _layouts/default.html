@@ -40,8 +40,17 @@
 
     <meta property="og:url"                content="http://coloradoapproves.org" />
     <meta property="og:title"              content="Colorado Approves: Help Bring Approval Voting to Colorado" />
+    {% if page.description %}
+    <meta property="og:description"        content="{{page.description}}" />
+    {% else %}
     <meta property="og:description"        content="Approval Voting works exactly the same as our current elections, with one simple but crucial difference: you are allowed to vote for more than one candidate.  Most votes wins. This seems crazy, but it has wide-ranging and historic consequences." />
+    {% endif %}
+
+    {% if page.image %}
+    <meta property="og:image"              content="{{page.image}}" />
+    {% else %}
     <meta property="og:image"              content="http://coloradoapproves.org/images/coloradoapproves-screenshot2.png" />
+    {% endif %}
 
     {% if page.scripts %}
     {% for s in page.scripts %}
